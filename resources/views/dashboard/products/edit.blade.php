@@ -18,7 +18,8 @@
         <flux:input label="Name" name="name" class="mb-3" placeholder="Product Name" value="{{ old('name', $product->name) }}" />
         <flux:select label="Category" name="category_slug" class="mb-3">
             @foreach ($categories as $category)
-                <option value="{{ $category->slug }}" {{ $product->category->slug == $category->slug ? 'selected' : '' }}>{{ $category->name }}</option>
+                <option value="{{ $category->slug }}" {{ optional($product->category)->slug == $category->slug ? 'selected' : '' }}
+            >{{ $category->name }}</option>
 
             @endforeach
         </flux:select>
